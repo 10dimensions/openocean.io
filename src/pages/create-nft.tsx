@@ -7,17 +7,19 @@ import Web3Modal from 'web3modal'
 
 const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0')
 
-import {
-  marketplaceAddress
-} from '../config'
+// import {
+//   marketplaceAddress
+// } from '../config'
 
-import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json'
+import NFTMarketplace from '../abis/NFTMarketplace.json'
+
+const marketplaceAddress = "0xd2107Fc5fB041e0b2cF4091B7aC0678f81A5F8cA"
 
 export default function CreateItem() {
   const [fileUrl, setFileUrl] = useState(null)
   const [formInput, updateFormInput] = useState({ price: '', name: '', description: '' })
   const router = useRouter()
-
+  
   async function onChange(e) {
     /* upload image to IPFS */
     const file = e.target.files[0]
